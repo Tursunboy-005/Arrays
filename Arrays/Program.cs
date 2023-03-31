@@ -11,31 +11,20 @@ namespace Arrays
     {
        public static void Main(string[] args)
         {
-            int input, butunson = int.MaxValue, maxCount = 0, count = 0, qiymat = 0;
-            do
+            Console.Write("Enter number N=> ");
+            int number = Convert.ToInt32(Console.ReadLine());
+            Random random = new Random();
+            random.Next(number);
+            Console.Write("Enter a diviser => ");
+            int diviser = Convert.ToInt32(Console.ReadLine());
+
+            for (int i = 1; i < number; i++)
             {
-                Console.Write("butun son kiriting : ");
-                input = int.Parse(Console.ReadLine());
-
-                if (butunson == input)
+                if (i % diviser == 0)
                 {
-                    count++;
+                    Console.WriteLine($"{i}");
                 }
-                else
-                {
-                    if (count > maxCount)
-                    {
-                        maxCount = count;
-                        qiymat = butunson;
-                    }
-                    count = 1;
-                    butunson = input;
-                }
-            } while (count != 0);
-            Console.WriteLine("Bir birini takrorlaydigan sonlar uchun eng uzuni : ");
-
-
-
+            }
         }
     }
 }
