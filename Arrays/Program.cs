@@ -11,19 +11,42 @@ namespace Arrays
     {
        public static void Main(string[] args)
         {
-            Console.Write("Enter number N=> ");
-            int number = Convert.ToInt32(Console.ReadLine());
-            Random random = new Random();
-            random.Next(number);
-            Console.Write("Enter a diviser => ");
-            int diviser = Convert.ToInt32(Console.ReadLine());
 
-            for (int i = 1; i < number; i++)
+            Console.Write("Iltimos, massiv uzunligini kiriting:");
+            int n = int.Parse(Console.ReadLine());
+
+            int[] massiv = new int[n];
+
+            Console.WriteLine($"Iltimos, {n} ta butun sonni kiriting:");
+            for (int i = 0; i < n; i++)
             {
-                if (i % diviser == 0)
+                massiv[i] = int.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine("Kiritilgan massiv:");
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write(massiv[i] + " ");
+            }
+            
+            int searchNumber = int.Parse(Console.ReadLine());
+            
+            bool borlik = false;
+            for (int i = 0; i < massiv.Length; i++)
+            {
+                if (massiv[i] == searchNumber)
                 {
-                    Console.WriteLine($"{i}");
+                    borlik = true;
+                    break;
                 }
+            }
+            if(borlik)
+            {
+                Console.WriteLine($"{searchNumber} Massivda mavjud");
+            }
+            else
+            {
+                Console.WriteLine($"{searchNumber} Massivda mavjud emas ");
             }
         }
     }
