@@ -11,20 +11,33 @@ namespace Arrays
     {
        public static void Main(string[] args)
         {
-            Console.Write("Enter number N=> ");
-            int number = Convert.ToInt32(Console.ReadLine());
-            Random random = new Random();
-            random.Next(number);
-            Console.Write("Enter a diviser => ");
-            int diviser = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Massiv Uzunligini kiriting : ");
+            int n = int.Parse(Console.ReadLine());
 
-            for (int i = 1; i < number; i++)
+            int[] massiv = new int[n];
+
+            Console.WriteLine($"Iltimos, {n} ta butun son kiriting ");
+           
+            for (int i = 0; i < n; i++)
             {
-                if (i % diviser == 0)
-                {
-                    Console.WriteLine($"{i}");
-                }
+                massiv[i] = int.Parse( Console.ReadLine()); 
             }
+
+            int yigindi = 0;
+            for (int i = 0; i < massiv.Length; i++)
+            {
+                yigindi += massiv[i];
+            }
+
+            int kopaytma = 1;
+            for (int i = 0; i < massiv.Length; i++)
+            {
+                kopaytma *= massiv[i];
+            }
+
+            Console.WriteLine($"Massiv yig'indisi: {yigindi}");
+            Console.WriteLine($"Massiv ko'paytmasi: {kopaytma}");
+
         }
     }
 }
