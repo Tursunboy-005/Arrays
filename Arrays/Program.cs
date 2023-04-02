@@ -11,20 +11,30 @@ namespace Arrays
     {
        public static void Main(string[] args)
         {
-            Console.Write("Enter number N=> ");
-            int number = Convert.ToInt32(Console.ReadLine());
-            Random random = new Random();
-            random.Next(number);
-            Console.Write("Enter a diviser => ");
-            int diviser = Convert.ToInt32(Console.ReadLine());
+            int[] massiv = { 2, 8, 3, 7, 5, 1, 4 };
+            int n = massiv.Length;
 
-            for (int i = 1; i < number; i++)
+            // Dastlabki toq songacha bo'lgan elementlarning yig'indisini hisoblash
+            int yigindi = 0;
+            int i = 0;
+            while (i < n && massiv[i] % 2 != 0)
             {
-                if (i % diviser == 0)
-                {
-                    Console.WriteLine($"{i}");
-                }
+                yigindi += massiv[i];
+                i++;
             }
+
+            // Agar massivda toq sonlar yo'q bo'lsa birinchi va oxirgi elementlar orasidagi elementlarning yig'indisini hisoblash
+            if (i == 0 || i == n)
+            {
+                yigindi = massiv[0] + massiv[n - 1];
+            }
+            else
+            {
+                yigindi += massiv[i - 1] + massiv[i];
+            }
+
+            // Yig'indini chiqarish
+            Console.WriteLine($"Massivning dastlabki toq songacha bo'lgan elementlarining yig'indisi: {yigindi}");
         }
     }
 }
