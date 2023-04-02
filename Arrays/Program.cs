@@ -9,21 +9,21 @@ namespace Arrays
 {
     internal class Program
     {
-       public static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.Write("Enter number N=> ");
-            int number = Convert.ToInt32(Console.ReadLine());
-            Random random = new Random();
-            random.Next(number);
-            Console.Write("Enter a diviser => ");
-            int diviser = Convert.ToInt32(Console.ReadLine());
-
-            for (int i = 1; i < number; i++)
+            int[] massiv = { 3, 7, 5, 2, 8, 4 };
+            int n = massiv.Length;
+         
+            int k = 2;
+            int l = 4;
+           
+            int temp = massiv[k];
+            massiv[k] = massiv[l];
+            massiv[l] = temp;
+          
+            for (int i = 0; i < n; i++)
             {
-                if (i % diviser == 0)
-                {
-                    Console.WriteLine($"{i}");
-                }
+                Console.Write($"{massiv[i]} ");
             }
         }
     }
